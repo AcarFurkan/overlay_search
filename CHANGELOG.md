@@ -1,3 +1,6 @@
+## 0.0.5
+
+* Web and mobile view examples converted to gif
 
 ## 0.0.3
 
