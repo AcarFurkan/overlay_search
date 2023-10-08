@@ -1,87 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:overlay_search/src/overlay_list_item.dart';
 
-class OverlayItemModel {
-  String? id;
-  String? title;
-  String? content;
+import 'overlay_search_controller.dart';
 
-  OverlayItemModel({
-    this.id,
-    required this.title,
-    this.content,
+class OverlayContent extends StatelessWidget {
+  const OverlayContent({
+    super.key,
+    required this.stocksTop,
+    required this.controller,
+    this.titleStyle,
+    this.contentStyle,
+    this.backgroundColor,
+    this.maxOverlayHeight,
   });
-}
-
-class OverlaySearchController extends ChangeNotifier {
-  OverlayEntry? entry;
-  final FocusNode searchFocusNode = FocusNode();
-
-  hideOverlay() {
-    entry?.remove();
-    entry = null;
-    searchFocusNode.unfocus();
-  }
-
-  bool isLoading = false;
-
-  List<OverlayItemModel> itemList = [];
-  updateStocks(List<OverlayItemModel> stocks) {
-    itemList = stocks;
-    notifyListeners();
-  }
-
-  updateLoading(bool value) {
-    isLoading = value;
-    notifyListeners();
-  }
-
-  void showOverlay(BuildContext context, List<OverlayItemModel> stocks,
-      LayerLink layerLink) {
-    updateStocks(stocks);
-
-    final overlayState = Overlay.of(context);
-
-    final renderBox = context.findRenderObject() as RenderBox;
-    final size = renderBox.size;
-
-    entry = OverlayEntry(
-      maintainState: true,
-      builder: (context) => Positioned(
-        width: size.width,
-        child: CompositedTransformFollower(
-          link: layerLink,
-          showWhenUnlinked: false,
-          offset: Offset(0, size.height + 8),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-            ),
-            child: buildOverlay(context, itemList),
-          ),
-        ),
-      ),
-      //      maintainState: true,
-    );
-
-    overlayState.insert(entry!);
-  }
-
-  buildOverlay(
-    BuildContext context,
-    List<OverlayItemModel> stocksTop,
-  ) {
-    return OverlayContentStock(
-      stocksTop: stocksTop,
-      controller: this,
-    );
-  }
-}
-
-class OverlayContentStock extends StatelessWidget {
-  const OverlayContentStock(
-      {super.key, required this.stocksTop, required this.controller});
   final List<OverlayItemModel> stocksTop;
   final OverlaySearchController controller;
+  final TextStyle? titleStyle;
+  final TextStyle? contentStyle;
+  final Color? backgroundColor;
+  final double? maxOverlayHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +28,7 @@ class OverlayContentStock extends StatelessWidget {
         final value = controller.itemList;
         final size = MediaQuery.of(context).size;
         final double calculatedHeight = ((value.length) * 55 + 20);
-        final double maxHeight = size.height * .5;
+        final double maxHeight = maxOverlayHeight ?? size.height * .5;
         return AnimatedContainer(
           constraints: BoxConstraints(
             maxHeight: value.isEmpty
@@ -103,7 +40,7 @@ class OverlayContentStock extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
-            color: Colors.black,
+            color: backgroundColor,
             child: controller.isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : value.isNotEmpty
@@ -115,9 +52,13 @@ class OverlayContentStock extends StatelessWidget {
                           return SizedBox(
                             height: 55,
                             child: ListTile(
-                              title: Text((e.title ?? "stock").toUpperCase()),
-                              subtitle:
-                                  Text((e.content ?? "stock").toUpperCase()),
+                              title: Text(e.title, style: titleStyle),
+                              subtitle: e.content != null
+                                  ? Text(
+                                      e.content!,
+                                      style: contentStyle,
+                                    )
+                                  : null,
                               onTap: () {
                                 // ref.read(routerProvider).pushNamed(
                                 //   DemoPath.stockDetail.name,
@@ -142,7 +83,7 @@ class OverlayContentStock extends StatelessWidget {
                       )
                     : const Center(
                         child: Text(
-                          "Hisse bulunamadı",
+                          "Sonuç Bulunamadı",
                         ),
                       ),
           ),

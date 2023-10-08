@@ -1,6 +1,6 @@
 name: overlay_search
 description: You can show overlay search widget with this package.
-version: 0.0.5
+version: 0.1.0
 homepage: https://furkanacar.dev
 repository: https://github.com/AcarFurkan/overlay_search
 
@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:

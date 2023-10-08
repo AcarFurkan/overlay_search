@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Theme Configuration and debounce manager added 
+
 ## 0.0.5
 
 * Web and mobile view examples converted to gif

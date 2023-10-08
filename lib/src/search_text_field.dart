@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class SearchTextField extends StatefulWidget {
   const SearchTextField({
     super.key,
-    this.label = 'Search',
+    this.hint,
+    this.hintStyle,
     this.foregroundColor,
     this.backgroundColor,
     this.suffixAction,
@@ -18,10 +19,18 @@ class SearchTextField extends StatefulWidget {
     this.isAnimatedSuffix = true,
     this.focusNode,
     this.onTap,
+    this.iconColor,
+    this.style,
+    this.cursorColor,
   });
-  final String label;
+  final String? hint;
+  final TextStyle? hintStyle;
+  final TextStyle? style;
+  final Color? cursorColor;
+
   final Color? foregroundColor;
   final Color? backgroundColor;
+  final Color? iconColor;
   final Function(String)? onChanged;
   final Function(String)? suffixAction;
   final Function(String)? prefixAction;
@@ -73,29 +82,24 @@ class _SearchTextFieldState extends State<SearchTextField> {
         textAlignVertical: TextAlignVertical.center,
         textAlign: TextAlign.center,
         controller: controller,
-        // style: context.textTheme.size16.copyWith(
-        //   color: context.colorScheme.surfaceTint,
-        //   fontWeight: FontWeight.w400,
-        // ),
+        style: widget.style,
         onChanged: (value) {
           widget.onChanged?.call(value);
         },
-
-        /// cursorColor: context.colorScheme.surfaceTint,
+        cursorColor: widget.cursorColor,
       ),
     );
   }
 
   InputDecoration get _inputDecoration => InputDecoration(
-        hintText: widget.label,
-        // hintStyle: context.textTheme.size16.copyWith(
-        //   color: widget.foregroundColor ?? context.colorScheme.surfaceTint,
-        //   fontWeight: FontWeight.w400,
-        // ),
+        hintText: widget.hint,
+        hintStyle: widget.hintStyle,
         floatingLabelAlignment: FloatingLabelAlignment.center,
         prefixIcon: IconButton(
-          icon: Icon(widget.prefixIcon ?? Icons.search),
-          //  color: widget.foregroundColor ?? context.colorScheme.surfaceTint,
+          icon: Icon(
+            widget.prefixIcon ?? Icons.search,
+          ),
+          color: widget.iconColor,
           onPressed: () {
             widget.suffixAction?.call(controller.text.trim());
           },
@@ -112,8 +116,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
                   },
                   icon: Icon(
                     widget.suffixIcon ?? Icons.close,
-                    // color:
-                    //     widget.foregroundColor ?? context.colorScheme.surfaceTint,
+                    color: widget.iconColor,
                   ),
                   style: IconButton.styleFrom(
                     padding: EdgeInsets.zero,
@@ -126,10 +129,10 @@ class _SearchTextFieldState extends State<SearchTextField> {
                   controller.clear();
                   FocusScope.of(context).unfocus();
                 },
+                color: widget.iconColor,
                 icon: Icon(
                   widget.suffixIcon ?? Icons.close,
-                  // color:
-                  //     widget.foregroundColor ?? context.colorScheme.surfaceTint,
+                  color: widget.iconColor,
                 ),
                 style: IconButton.styleFrom(
                   padding: EdgeInsets.zero,
@@ -145,9 +148,6 @@ class _SearchTextFieldState extends State<SearchTextField> {
           vertical: 0,
         ),
         filled: true,
-        // fillColor: widget.backgroundColor.withOpacity(0.15),
-        // fillColor: widget.backgroundColor != null
-        //     ? widget.backgroundColor?.withOpacity(0.15)
-        //     : context.colorScheme.onInverseSurface,
+        fillColor: widget.backgroundColor?.withOpacity(0.15),
       );
 }
