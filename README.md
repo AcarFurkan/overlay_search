@@ -17,12 +17,9 @@ know whether this package might be useful for them.
 ## Example
 
 ### Web View Example
-
-https://github.com/AcarFurkan/overlay_search/assets/65075121/eaeee9e0-d79a-4412-b4ec-b59bcd75f50e
+![Web View](https://github.com/AcarFurkan/overlay_search/assets/65075121/116aa925-88e0-4369-a5df-e506c921bd76)
 
 ### Mobile View Example
-
-https://github.com/AcarFurkan/overlay_search/assets/65075121/6f1d7671-a277-4d5e-86e8-38a5780bb776
 
 ![Mobile View](https://github.com/AcarFurkan/overlay_search/assets/65075121/fef4959d-3351-4e44-b3e4-02a7883987ac)
 
