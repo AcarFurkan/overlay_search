@@ -14,6 +14,20 @@ and the Flutter guide for
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
 
+## Example
+
+TODO: List what your package can do. Maybe include images, gifs, or videos.
+
+### Web View Example
+
+https://github.com/AcarFurkan/overlay_search/assets/65075121/eaeee9e0-d79a-4412-b4ec-b59bcd75f50e
+
+### Mobile View Example
+
+https://github.com/AcarFurkan/overlay_search/assets/65075121/6f1d7671-a277-4d5e-86e8-38a5780bb776
+
+
+
 ## Features
 
 TODO: List what your package can do. Maybe include images, gifs, or videos.
