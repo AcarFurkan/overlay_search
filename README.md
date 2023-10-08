@@ -24,6 +24,7 @@ https://github.com/AcarFurkan/overlay_search/assets/65075121/eaeee9e0-d79a-4412-
 
 https://github.com/AcarFurkan/overlay_search/assets/65075121/6f1d7671-a277-4d5e-86e8-38a5780bb776
 
+![Simulator Screen Recording - iPhone 14 Plus - 2023-10-08 at 15 46 29](https://github.com/AcarFurkan/overlay_search/assets/65075121/fef4959d-3351-4e44-b3e4-02a7883987ac)
 
 
 ## Features
