@@ -32,6 +32,9 @@ class SearchWithList extends StatefulWidget {
     this.shiftOverlayFromLeft,
     this.cursorColor,
     this.searchTextStyle,
+    this.notFoundText,
+    this.onItemSelected,
+    this.debounceDuration,
   });
   final List<OverlayItemModel> list;
   final bool? isLoading;
@@ -55,6 +58,9 @@ class SearchWithList extends StatefulWidget {
   final double? overlayWidth;
   final double? shiftOverlayFromLeft;
   final Color? cursorColor;
+  final String? notFoundText;
+  final Function(OverlayItemModel item)? onItemSelected;
+  final Duration? debounceDuration;
   @override
   State<SearchWithList> createState() => _SearchWithListState();
 }
@@ -88,17 +94,13 @@ class _SearchWithListState extends State<SearchWithList> {
         iconColor: widget.iconColor,
         cursorColor: widget.cursorColor,
         style: widget.searchTextStyle,
-        
-        
         onChanged: (value) {
           _onChanged(value);
         },
         suffixAction: (value) {
           widget.suffixAction?.call();
         },
-        onTap: () {
-          _onTap();
-        },
+        onTap: _onTap,
       ),
     );
   }
@@ -118,7 +120,8 @@ class _SearchWithListState extends State<SearchWithList> {
   }
 
   void _debounceSearch(String value) {
-    Debounce debounce = Debounce(const Duration(milliseconds: 1000));
+    Debounce debounce =
+        Debounce(widget.debounceDuration ?? const Duration(milliseconds: 1000));
     debounce.add(value);
     debounce.call((value) {
       widget.onChanged!.call(value);
@@ -156,9 +159,7 @@ class _SearchWithListState extends State<SearchWithList> {
           showWhenUnlinked: widget.showWhenUnlinked ?? false,
           offset: Offset(widget.shiftOverlayFromLeft ?? 0, size.height + 8),
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-            ),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: OverlayContent(
               stocksTop: widget.overlaySearchController.itemList,
               controller: widget.overlaySearchController,
@@ -166,13 +167,15 @@ class _SearchWithListState extends State<SearchWithList> {
               contentStyle: widget.contentStyle,
               backgroundColor: widget.overlayBackgroundColor,
               maxOverlayHeight: widget.overlayHeight,
+              onItemSelected: (item) {
+                widget.onItemSelected?.call(item);
+              },
+              notFoundText: widget.notFoundText,
             ),
           ),
         ),
       ),
-      //      maintainState: true,
     );
-
     overlayState.insert(widget.overlaySearchController.entry!);
   }
 }

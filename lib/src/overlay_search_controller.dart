@@ -6,16 +6,15 @@ class OverlaySearchController extends ChangeNotifier {
   final FocusNode searchFocusNode = FocusNode();
   final LayerLink layerLink = LayerLink();
   final TextEditingController searchController = TextEditingController();
-
+  bool isLoading = false;
+  List<OverlayItemModel> itemList = [];
+  
   hideOverlay() {
     entry?.remove();
     entry = null;
     searchFocusNode.unfocus();
   }
 
-  bool isLoading = false;
-
-  List<OverlayItemModel> itemList = [];
   void updateStocks(List<OverlayItemModel> stocks, {String? searchKey}) {
     itemList = stocks
         .where((element) => element.title

@@ -12,6 +12,8 @@ class OverlayContent extends StatelessWidget {
     this.contentStyle,
     this.backgroundColor,
     this.maxOverlayHeight,
+    required this.onItemSelected,
+    this.notFoundText,
   });
   final List<OverlayItemModel> stocksTop;
   final OverlaySearchController controller;
@@ -19,6 +21,8 @@ class OverlayContent extends StatelessWidget {
   final TextStyle? contentStyle;
   final Color? backgroundColor;
   final double? maxOverlayHeight;
+  final Function(OverlayItemModel item) onItemSelected;
+  final String? notFoundText;
 
   @override
   Widget build(BuildContext context) {
@@ -60,30 +64,17 @@ class OverlayContent extends StatelessWidget {
                                     )
                                   : null,
                               onTap: () {
-                                // ref.read(routerProvider).pushNamed(
-                                //   DemoPath.stockDetail.name,
-                                //   pathParameters: {
-                                //     "id": value[index].symbol ?? "GARAN"
-                                //   },
-                                //   queryParameters: {
-                                //     "stockId": value[index].id ?? "1"
-                                //   },
-                                // ).then((value) {
-                                //   //TODO: HİDE OVERLAY make it call back
-                                //   // hideOverlay();
-                                //   controller.clearSearch();
-                                // });
+                                onItemSelected.call(e);
+                                controller.searchController.clear();
                                 controller.hideOverlay();
-
-                                // hideOverlay();
                               },
                             ),
                           );
                         },
                       )
-                    : const Center(
+                    : Center(
                         child: Text(
-                          "Sonuç Bulunamadı",
+                          notFoundText ?? "Sonuç Bulunamadı",
                         ),
                       ),
           ),
