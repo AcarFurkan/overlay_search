@@ -15,15 +15,6 @@ and the Flutter guide for
 know whether this package might be useful for them.
 
 ## Example
-
-### Web View Example
-![Web View](https://github.com/AcarFurkan/overlay_search/assets/65075121/116aa925-88e0-4369-a5df-e506c921bd76)
-
-### Mobile View Example
-
-![Mobile View](https://github.com/AcarFurkan/overlay_search/assets/65075121/fef4959d-3351-4e44-b3e4-02a7883987ac)
-
-
 ## Features
 
  List what your package can do. Maybe include images, gifs, or videos.
