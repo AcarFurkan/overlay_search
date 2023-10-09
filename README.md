@@ -16,7 +16,7 @@ know whether this package might be useful for them.
 
 ## Example
 ### Web View
-![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/58bc6550-559a-4886-babd-4b98eca9a710)
+![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/2cf0a4a4-69c9-4054-baf2-11aefd8e7442)
 
 ### Mobile View
 
