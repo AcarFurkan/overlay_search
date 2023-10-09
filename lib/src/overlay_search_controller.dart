@@ -8,11 +8,15 @@ class OverlaySearchController extends ChangeNotifier {
   final TextEditingController searchController = TextEditingController();
   bool isLoading = false;
   List<OverlayItemModel> itemList = [];
-  
+
   hideOverlay() {
     entry?.remove();
     entry = null;
     searchFocusNode.unfocus();
+  }
+
+  void clearSearchQuery() {
+    searchController.clear();
   }
 
   void updateStocks(List<OverlayItemModel> stocks, {String? searchKey}) {
