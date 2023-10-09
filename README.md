@@ -11,8 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
- Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+In a nutshell, this package allows you to perform a search on a webpage even if there isn't a pre-existing list on that page. You can easily display a list on top of your existing components using this package.
 
 ## Example
 
