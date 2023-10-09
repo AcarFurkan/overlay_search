@@ -37,7 +37,39 @@ start using the package.
 to `/example` folder.
 
 ```dart
-const like = 'sample';
+SearchWithList(
+      overlaySearchController: widget.overlayController,
+      list: list
+          .map(
+            (e) => OverlayItemModel(
+              title: e.symbol ?? "name",
+              content: e.name,
+              id: e.id,
+            ),
+          )
+          .toList(),
+      isLoading: isLoading,
+      hintStyle: Theme.of(context).textTheme.bodyMedium,
+      overlayBackgroundColor: Colors.black,
+      hint: "Search Stock",
+      suffixAction: () {
+        widget.overlayController.hideOverlay();
+        widget.overlayController.clearSearchQuery();
+      },
+      notFoundText: "Stock Not Found",
+      onItemSelected: (item) {
+        print(item.title);
+      },
+      enableDebounce: true,
+      debounceDuration: const Duration(milliseconds: 2200),
+      onChanged: (p0) {
+        print(p0);
+        _fetchSearchWithKey(p0);
+      },
+      onTap: () {
+        _fetchSearch();
+      },
+    )
 ```
 
 ## Additional information
