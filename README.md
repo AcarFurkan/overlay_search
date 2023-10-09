@@ -15,6 +15,13 @@ and the Flutter guide for
 know whether this package might be useful for them.
 
 ## Example
+### Web View
+![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/58bc6550-559a-4886-babd-4b98eca9a710)
+
+### Mobile View
+
+
+
 ## Features
 
  List what your package can do. Maybe include images, gifs, or videos.
