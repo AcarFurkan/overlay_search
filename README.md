@@ -21,14 +21,6 @@ In a nutshell, this package allows you to perform a search on a webpage even if 
 ### Web View
 ![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/2cf0a4a4-69c9-4054-baf2-11aefd8e7442)
 
-## Features
-
- List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
- List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
@@ -73,6 +65,4 @@ SearchWithList(
 
 ## Additional information
 
-Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+overlay search is still in the beta version, I would be very happy if you contribute. Have a nice day :)
