@@ -16,12 +16,11 @@ know whether this package might be useful for them.
 
 ## Example
 
-### Web View
-![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/2cf0a4a4-69c9-4054-baf2-11aefd8e7442)
-
 ### Mobile View
 ![showoverlaymobile](https://github.com/AcarFurkan/overlay_search/assets/65075121/0e683fe1-c4c4-4b8f-bd8a-734955d266dc)
 
+### Web View
+![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/2cf0a4a4-69c9-4054-baf2-11aefd8e7442)
 
 ## Features
 
