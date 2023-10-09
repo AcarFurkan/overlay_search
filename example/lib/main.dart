@@ -114,8 +114,10 @@ class _HomeSearchState extends State<HomeSearch> {
   }
 
   _fetchSearch() async {
+    if (list.isNotEmpty) return;
     try {
       setLoading(true);
+
       list = await DataRepository.fetchList();
       setLoading(false);
     } catch (e) {
