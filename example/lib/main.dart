@@ -18,33 +18,39 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeView(),
+      home: HomeView(),
     );
   }
 }
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  HomeView({super.key});
+  final OverlaySearchController overlayController = OverlaySearchController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xff1F1F26),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: [
-              const Center(
-                child: Text('Home View'),
-              ),
-              const SizedBox(height: 16),
-              const HomeSearch(),
-              Expanded(
-                  child: FlutterLogo(
-                size: MediaQuery.of(context).size.width,
-              ))
-            ],
+    return GestureDetector(
+      onTap: () {
+        overlayController.hideOverlay();
+      },
+      child: Scaffold(
+        backgroundColor: const Color(0xff1F1F26),
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                const Center(
+                  child: Text('Home View'),
+                ),
+                const SizedBox(height: 16),
+                HomeSearch(overlayController: overlayController),
+                Expanded(
+                    child: FlutterLogo(
+                  size: MediaQuery.of(context).size.width,
+                ))
+              ],
+            ),
           ),
         ),
       ),
@@ -53,16 +59,13 @@ class HomeView extends StatelessWidget {
 }
 
 class HomeSearch extends StatefulWidget {
-  const HomeSearch({super.key});
-
+  const HomeSearch({super.key, required this.overlayController});
+  final OverlaySearchController overlayController;
   @override
   State<HomeSearch> createState() => _HomeSearchState();
 }
 
 class _HomeSearchState extends State<HomeSearch> {
-  final OverlaySearchController overlayController = OverlaySearchController();
-  final TextEditingController textController = TextEditingController();
-
   bool? isLoading = false;
 
   List<Item> list = [];
@@ -70,7 +73,7 @@ class _HomeSearchState extends State<HomeSearch> {
   @override
   Widget build(BuildContext context) {
     return SearchWithList(
-      overlaySearchController: overlayController,
+      overlaySearchController: widget.overlayController,
       list: list
           .map(
             (e) => OverlayItemModel(
@@ -85,8 +88,8 @@ class _HomeSearchState extends State<HomeSearch> {
       overlayBackgroundColor: Colors.black,
       hint: "Search Stock",
       suffixAction: () {
-        overlayController.hideOverlay();
-        overlayController.clearSearchQuery();
+        widget.overlayController.hideOverlay();
+        widget.overlayController.clearSearchQuery();
       },
       notFoundText: "Stock Not Found",
       onItemSelected: (item) {
