@@ -1,3 +1,7 @@
+## 0.1.2    
+
+* Example project added
+
 ## 0.1.0
 
 * Theme Configuration and debounce manager added 
