@@ -1,3 +1,7 @@
+## 0.1.3 
+
+* default not found text updated
+
 ## 0.1.2    
 
 * Example project added
