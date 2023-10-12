@@ -74,7 +74,7 @@ class OverlayContent extends StatelessWidget {
                       )
                     : Center(
                         child: Text(
-                          notFoundText ?? "Sonuç Bulunamadı",
+                          notFoundText ?? "No Results Found",
                         ),
                       ),
           ),

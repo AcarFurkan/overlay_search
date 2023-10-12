@@ -9,7 +9,7 @@ class OverlaySearchController extends ChangeNotifier {
   bool isLoading = false;
   List<OverlayItemModel> itemList = [];
 
-  hideOverlay() {
+  void hideOverlay() {
     entry?.remove();
     entry = null;
     searchFocusNode.unfocus();
