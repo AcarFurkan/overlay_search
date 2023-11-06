@@ -20,6 +20,7 @@ class SearchWithList extends StatefulWidget {
     this.onChanged,
     this.enableDebounce,
     this.hint = "Search",
+    this.focusedHint,
     this.hintStyle,
     this.showWhenUnlinked,
     this.titleStyle,
@@ -45,6 +46,7 @@ class SearchWithList extends StatefulWidget {
   final Function(String)? onChanged;
   final bool? enableDebounce;
   final String? hint;
+  final String? focusedHint;
   final TextStyle? hintStyle;
   final bool? showWhenUnlinked;
   final TextStyle? titleStyle;
@@ -89,6 +91,7 @@ class _SearchWithListState extends State<SearchWithList> {
         focusNode: widget.overlaySearchController.searchFocusNode,
         controller: widget.overlaySearchController.searchController,
         hint: widget.hint,
+        focusedHint: widget.focusedHint,
         hintStyle: widget.hintStyle,
         backgroundColor: widget.searchBackgroundColor,
         iconColor: widget.iconColor,

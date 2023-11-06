@@ -32,7 +32,7 @@ class OverlayContent extends StatelessWidget {
         final value = controller.itemList;
         final size = MediaQuery.of(context).size;
         final double calculatedHeight = ((value.length) * 55 + 20);
-        final double maxHeight = maxOverlayHeight ?? size.height * .5;
+        final double maxHeight = maxOverlayHeight ?? size.height * .2;
         return AnimatedContainer(
           constraints: BoxConstraints(
             maxHeight: value.isEmpty

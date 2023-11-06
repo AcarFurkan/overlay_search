@@ -17,14 +17,17 @@ class SearchTextField extends StatefulWidget {
     this.controller,
     this.prefixAction,
     this.isAnimatedSuffix = true,
-    this.focusNode,
+    required this.focusNode,
     this.onTap,
     this.iconColor,
     this.style,
     this.cursorColor,
+    this.focusedHint,
   });
   final String? hint;
   final TextStyle? hintStyle;
+  final String? focusedHint;
+
   final TextStyle? style;
   final Color? cursorColor;
 
@@ -34,7 +37,7 @@ class SearchTextField extends StatefulWidget {
   final Function(String)? onChanged;
   final Function(String)? suffixAction;
   final Function(String)? prefixAction;
-  final FocusNode? focusNode;
+  final FocusNode focusNode;
 
   final GlobalKey? searchKey;
   final IconData? prefixIcon;
@@ -61,6 +64,9 @@ class _SearchTextFieldState extends State<SearchTextField> {
     controller.addListener(() {
       setState(() {});
     });
+    widget.focusNode.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
@@ -68,17 +74,22 @@ class _SearchTextFieldState extends State<SearchTextField> {
     if (widget.controller == null) {
       controller.dispose();
     }
+    widget.focusNode.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    print( widget.focusNode.hasFocus);
     return IntrinsicHeight(
       child: TextFormField(
         focusNode: widget.focusNode,
         decoration: _inputDecoration,
         key: widget.searchKey,
-        onTap: widget.onTap,
+        onTap: () {
+          widget.onTap?.call();
+          setState(() {});
+        },
         textAlignVertical: TextAlignVertical.center,
         textAlign: TextAlign.center,
         controller: controller,
@@ -92,7 +103,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
   }
 
   InputDecoration get _inputDecoration => InputDecoration(
-        hintText: widget.hint,
+        hintText: widget.focusNode.hasFocus ? widget.focusedHint : widget.hint,
         hintStyle: widget.hintStyle,
         floatingLabelAlignment: FloatingLabelAlignment.center,
         prefixIcon: IconButton(

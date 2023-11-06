@@ -69,7 +69,7 @@ class _HomeSearchState extends State<HomeSearch> {
   bool? isLoading = false;
 
   List<Item> list = [];
-
+ 
   @override
   Widget build(BuildContext context) {
     return SearchWithList(
@@ -87,6 +87,7 @@ class _HomeSearchState extends State<HomeSearch> {
       hintStyle: Theme.of(context).textTheme.bodyMedium,
       overlayBackgroundColor: Colors.black,
       hint: "Search Stock",
+     // focusedHint: "focus",
       suffixAction: () {
         widget.overlayController.hideOverlay();
         widget.overlayController.clearSearchQuery();
