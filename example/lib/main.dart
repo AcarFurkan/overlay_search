@@ -87,7 +87,7 @@ class _HomeSearchState extends State<HomeSearch> {
       hintStyle: Theme.of(context).textTheme.bodyMedium,
       overlayBackgroundColor: Colors.black,
       hint: "Search Stock",
-     // focusedHint: "focus",
+      focusedHint: "focusedHint",
       suffixAction: () {
         widget.overlayController.hideOverlay();
         widget.overlayController.clearSearchQuery();

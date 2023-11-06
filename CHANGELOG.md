@@ -1,3 +1,7 @@
+## 0.1.4
+
+* focused hint text added 
+
 ## 0.1.3 
 
 * default not found text updated
