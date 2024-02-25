@@ -20,10 +20,10 @@ jobs:
       id-token: write # Required for authentication using OIDC
     steps:
     - name: Set up Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ matrix.flutter-version }}
-          channel: ${{ matrix.flutter-channel }}
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ matrix.flutter-version }}
+        channel: ${{ matrix.flutter-channel }}
     - name: Publish to pub.dev
       uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     # with:
