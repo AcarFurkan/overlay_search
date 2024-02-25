@@ -1,3 +1,7 @@
+## 0.2.1
+
+* minor update
+
 ## 0.1.4
 
 * focused hint text added 
