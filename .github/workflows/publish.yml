@@ -11,6 +11,7 @@ jobs:
     environment: ${{ inputs.environment }}
     permissions:
       id-token: write # This is required for requesting the JWT
+      contents: write # This is required for pushing the tag
     runs-on: ubuntu-latest
     steps:
       # Checkout repository
