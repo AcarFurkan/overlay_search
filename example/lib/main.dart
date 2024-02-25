@@ -5,7 +5,6 @@ import 'package:overlay_search/overlay_search.dart';
 
 void main() {
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
