@@ -7,7 +7,6 @@ void main() {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -47,9 +46,7 @@ class HomeView extends StatelessWidget {
                 const SizedBox(height: 16),
                 HomeSearch(overlayController: overlayController),
                 Expanded(
-                    child: FlutterLogo(
-                  size: MediaQuery.of(context).size.width,
-                ))
+                    child: FlutterLogo(size: MediaQuery.of(context).size.width))
               ],
             ),
           ),
@@ -70,7 +67,7 @@ class _HomeSearchState extends State<HomeSearch> {
   bool? isLoading = false;
 
   List<Item> list = [];
- 
+
   @override
   Widget build(BuildContext context) {
     return SearchWithList(
