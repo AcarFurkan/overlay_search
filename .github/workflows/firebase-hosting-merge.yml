@@ -15,8 +15,10 @@ jobs:
         with:
           channel: 'stable'
       - run: flutter pub get
-      - run: cd example && flutter pub get
-      - run: cd example && flutter build web
+      - run: flutter pub get
+        working-directory: ./example
+      - run: flutter build web --release --web-renderer=canvaskit
+        working-directory: ./example
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
