@@ -19,7 +19,7 @@ jobs:
       - uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3
       # Minimal package setup and dry run checks.
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
         working-directory: ${{ inputs.working-directory }}
       - name: Publish - dry run
         run: dart pub publish --dry-run
