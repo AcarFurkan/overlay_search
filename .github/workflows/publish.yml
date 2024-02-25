@@ -16,9 +16,15 @@ on:
 # Publish using the reusable workflow from dart-lang.
 jobs:
   publish:
-    - run: flutter pub get
     permissions:
       id-token: write # Required for authentication using OIDC
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
+    steps:
+    - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ matrix.flutter-version }}
+          channel: ${{ matrix.flutter-channel }}
+    - name: Publish to pub.dev
+      uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     # with:
     #   working-directory: path/to/package/within/repository
