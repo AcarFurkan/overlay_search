@@ -11,7 +11,6 @@ jobs:
     environment: ${{ inputs.environment }}
     permissions:
       id-token: write # This is required for requesting the JWT
-      contents: write # This is required for pushing the tag
     runs-on: ubuntu-latest
     steps:
       # Checkout repository
@@ -27,17 +26,24 @@ jobs:
         with:
           flutter-version: ${{ matrix.flutter-version }}
           channel: ${{ matrix.flutter-channel }}
-      - name: Publish to pub.dev
-        id: pub_release
-        uses: leancodepl/mobile-tools/.github/actions/pub-release@pub-release-v1
       # Minimal package setup and dry run checks.
-      # - name: Install dependencies
-      #   run: dart pub get
-      #   working-directory: ${{ inputs.working-directory }}
-      # - name: Publish - dry run
-      #   run: dart pub publish --dry-run
-      #   working-directory: ${{ inputs.working-directory }}
-      # # Publishing...
-      # - name: Publish to pub.dev
-      #   run: dart pub publish -f
-      #   working-directory: ${{ inputs.working-directory }}
+      - name: Install dependencies
+        run: dart pub get
+        working-directory: ${{ inputs.working-directory }}
+      - name: Publish - dry run
+        run: dart pub publish --dry-run
+        working-directory: ${{ inputs.working-directory }}
+      # Publishing...
+      - name: Publish to pub.dev
+        run: dart pub publish -f
+        working-directory: ${{ inputs.working-directory }}
+      - name: Create release on GitHub
+        uses: softprops/action-gh-release@v1
+        if: inputs.dry-run == 'false'
+        with:
+          name: ${{ github.ref_name }}
+          body: '[See changelog on pub.dev](${{ env.CHANGELOG_URL }})'
+    
+
+      
+      
