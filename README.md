@@ -11,15 +11,15 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-In a nutshell, this package allows you to perform a search on a webpage even if there isn't a pre-existing list on that page. You can easily display a list on top of your existing components using this package.
+In a nutshell, this package allows you to perform a search on a web page even if there isn't a pre-existing list on that page. You can easily display a list on top of your existing components using this package.
 
 ## Example
 
 ### Mobile View
-![showoverlaymobile](https://github.com/AcarFurkan/overlay_search/assets/65075121/0e683fe1-c4c4-4b8f-bd8a-734955d266dc)
+![show overlay mobile](https://github.com/AcarFurkan/overlay_search/assets/65075121/0e683fe1-c4c4-4b8f-bd8a-734955d266dc)
 
 ### Web View
-![showoverlayweb](https://github.com/AcarFurkan/overlay_search/assets/65075121/2cf0a4a4-69c9-4054-baf2-11aefd8e7442)
+![show overlay web](https://github.com/AcarFurkan/overlay_search/assets/65075121/2cf0a4a4-69c9-4054-baf2-11aefd8e7442)
 
 
 ## Usage
