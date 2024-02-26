@@ -16,12 +16,12 @@ jobs:
     steps:
       # Checkout repository
       - uses: actions/checkout@v4
-      # Setup Dart SDK with JWT token
-      # - uses: dart-lang/setup-dart@fedb1266e91cf51be2fdb382869461a434b920a3
+      # Set up Dart
       - name: Set up Dart
         uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
+      # Set up Flutter
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
