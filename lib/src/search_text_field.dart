@@ -80,7 +80,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
 
   @override
   Widget build(BuildContext context) {
-    print( widget.focusNode.hasFocus);
+    print(widget.focusNode.hasFocus);
     return IntrinsicHeight(
       child: TextFormField(
         focusNode: widget.focusNode,
