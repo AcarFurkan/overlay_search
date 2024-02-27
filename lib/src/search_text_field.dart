@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-//TODO: ADD CONSTANT DURATION TO ANIM
-//TODO: Should I leave the colors manually like this?
 class SearchTextField extends StatefulWidget {
   const SearchTextField({
     super.key,
