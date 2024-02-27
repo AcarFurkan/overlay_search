@@ -5,10 +5,12 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  # Currently, this workflow is triggered by pull request events only.
+  # Uncomment the following line to run this workflow on push events
+  # push:
+  #   branches:
+  #     - main
   pull_request:
-    branches:
-      - main
-  push:
     branches:
       - main
 
