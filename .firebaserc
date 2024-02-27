@@ -1,5 +1,18 @@
 {
   "projects": {
     "default": "overlay-search"
-  }
+  },
+  "targets": {
+    "overlay-search": {
+      "hosting": {
+        "example": [
+          "example-overlay"
+        ],
+        "example2": [
+          "example2-90d3c"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
