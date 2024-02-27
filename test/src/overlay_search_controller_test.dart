@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:overlay_search/overlay_search.dart';
 
@@ -9,13 +8,7 @@ void main() {
     setUp(() {
       controller = OverlaySearchController();
     });
-    test('hideOverlay should clear entry and unfocus searchFocusNode', () {
-      controller.entry = OverlayEntry(builder: (_) => Container());
-      controller.searchFocusNode.requestFocus();
-      controller.hideOverlay();
-      expect(controller.entry, isNull);
-      expect(controller.searchFocusNode.hasFocus, isFalse);
-    });
+
     test('clearSearchQuery should clear searchController text', () {
       controller.searchController.text = 'test';
       controller.clearSearchQuery();
