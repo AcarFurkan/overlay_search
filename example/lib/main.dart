@@ -41,7 +41,7 @@ class HomeView extends StatelessWidget {
             child: Column(
               children: [
                 const Center(
-                  child: Text('Home Page'),
+                  child: Text('Home View'),
                 ),
                 const SizedBox(height: 16),
                 HomeSearch(overlayController: overlayController),
