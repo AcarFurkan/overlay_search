@@ -1,4 +1,4 @@
-name: ci
+name: check
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -27,3 +27,4 @@ jobs:
     with:
       flutter_channel: stable
       min_coverage: 0  
+      test_recursion: false
