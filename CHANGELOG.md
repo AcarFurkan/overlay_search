@@ -1,3 +1,7 @@
+## 0.3.3
+
+* add top bar widget
+
 ## 0.3.2
 
 * add not found text style property
