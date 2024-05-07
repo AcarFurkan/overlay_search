@@ -1,3 +1,7 @@
+## 0.3.2
+
+* add not found text style property
+
 ## 0.3.1
 
 * add not found text style property
