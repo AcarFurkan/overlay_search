@@ -1,5 +1,9 @@
 ## 0.2.8
 
+* add not found text style property
+
+## 0.2.8
+
 * minor update
 
 ## 0.2.7

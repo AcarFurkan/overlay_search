@@ -14,6 +14,7 @@ class OverlayContent extends StatelessWidget {
     this.maxOverlayHeight,
     required this.onItemSelected,
     this.notFoundText,
+    this.notFoundTextStyle,
   });
   final List<OverlayItemModel> stocksTop;
   final OverlaySearchController controller;
@@ -23,6 +24,7 @@ class OverlayContent extends StatelessWidget {
   final double? maxOverlayHeight;
   final Function(OverlayItemModel item) onItemSelected;
   final String? notFoundText;
+  final TextStyle? notFoundTextStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -75,6 +77,7 @@ class OverlayContent extends StatelessWidget {
                     : Center(
                         child: Text(
                           notFoundText ?? "No Results Found",
+                          style: notFoundTextStyle,
                         ),
                       ),
           ),
