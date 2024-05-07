@@ -37,6 +37,9 @@ class SearchWithList extends StatefulWidget {
     this.onItemSelected,
     this.debounceDuration,
     this.notFoundTextStyle,
+    this.title,
+    this.action,
+    this.leading,
   });
   final List<OverlayItemModel> list;
   final bool? isLoading;
@@ -65,6 +68,10 @@ class SearchWithList extends StatefulWidget {
   final String? notFoundText;
   final Function(OverlayItemModel item)? onItemSelected;
   final Duration? debounceDuration;
+
+  final Widget? title;
+  final Widget? action;
+  final Widget? leading;
   @override
   State<SearchWithList> createState() => _SearchWithListState();
 }
@@ -173,6 +180,9 @@ class _SearchWithListState extends State<SearchWithList> {
               backgroundColor: widget.overlayBackgroundColor,
               maxOverlayHeight: widget.overlayHeight,
               notFoundTextStyle: widget.notFoundTextStyle,
+              title: widget.title,
+              action: widget.action,
+              leading: widget.leading,
               onItemSelected: (item) {
                 widget.onItemSelected?.call(item);
               },

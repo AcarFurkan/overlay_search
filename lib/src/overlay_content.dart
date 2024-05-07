@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:overlay_search/src/overlay_list_item.dart';
 
 import 'overlay_search_controller.dart';
@@ -15,6 +16,9 @@ class OverlayContent extends StatelessWidget {
     required this.onItemSelected,
     this.notFoundText,
     this.notFoundTextStyle,
+    this.title,
+    this.action,
+    this.leading,
   });
   final List<OverlayItemModel> stocksTop;
   final OverlaySearchController controller;
@@ -25,6 +29,9 @@ class OverlayContent extends StatelessWidget {
   final Function(OverlayItemModel item) onItemSelected;
   final String? notFoundText;
   final TextStyle? notFoundTextStyle;
+  final Widget? title;
+  final Widget? action;
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -50,29 +57,50 @@ class OverlayContent extends StatelessWidget {
             child: controller.isLoading
                 ? const Center(child: CircularProgressIndicator())
                 : value.isNotEmpty
-                    ? ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: value.length,
-                        itemBuilder: (context, index) {
-                          final e = value[index];
-                          return SizedBox(
-                            height: 55,
-                            child: ListTile(
-                              title: Text(e.title, style: titleStyle),
-                              subtitle: e.content != null
-                                  ? Text(
-                                      e.content!,
-                                      style: contentStyle,
-                                    )
-                                  : null,
-                              onTap: () {
-                                onItemSelected.call(e);
-                                controller.searchController.clear();
-                                controller.hideOverlay();
+                    ? Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: leading ?? const SizedBox(),
+                              ),
+                              Expanded(
+                                flex: 3,
+                                child: title ?? const SizedBox(),
+                              ),
+                              Expanded(
+                                child: action ?? const SizedBox(),
+                              ),
+                            ],
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              padding: EdgeInsets.zero,
+                              itemCount: value.length,
+                              itemBuilder: (context, index) {
+                                final e = value[index];
+                                return SizedBox(
+                                  height: 55,
+                                  child: ListTile(
+                                    title: Text(e.title, style: titleStyle),
+                                    subtitle: e.content != null
+                                        ? Text(
+                                            e.content!,
+                                            style: contentStyle,
+                                          )
+                                        : null,
+                                    onTap: () {
+                                      onItemSelected.call(e);
+                                      controller.searchController.clear();
+                                      controller.hideOverlay();
+                                    },
+                                  ),
+                                );
                               },
                             ),
-                          );
-                        },
+                          ),
+                        ],
                       )
                     : Center(
                         child: Text(
