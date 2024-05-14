@@ -3,7 +3,7 @@
 # GitHub kullanıcı adı ve repo adı
 REPO_OWNER="woltapp"
 REPO_NAME="wolt_modal_sheet"
-ACCESS_TOKEN="$ACCESS_TOKEN"  # Çevre değişkeninden token'ı al
+ACCESS_TOKEN="$ACCESS_TOKEN" 
 CHANGELOG_FILE="../../CHANGELOG.md"  # Changelog dosyanızın yolu
 PUBSPEC_FILE="../../pubspec.yaml"  # pubspec.yaml dosyanızın yolu
 
@@ -50,6 +50,9 @@ else
         echo "- $pr_title. [#${pr_number}]($pr_url)" >> "$temp_file"
 
         # İlişkili issue'ları bul ve geçici dosyaya yaz
+        issues=$(echo "$pr_body" | egrep -o 'https://github\.com/[a-zA-Z0-9_\-]*/[a-zA-Z0-9_\-]*/issues/[0-9]+' | sed -E 's|.*/issues/([0-9]+)|#\1|' | sort -u)
+        other_issues=$(echo "$pr_body" | egrep -o "(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved) #[0-9]+" | sed 's/.*#/#/' | sort -u)
+
         if [ ! -z "$issues" ] || [ ! -z "$other_issues" ]; then
             echo "  - Fixes:" >> "$temp_file"
             for issue in $issues; do

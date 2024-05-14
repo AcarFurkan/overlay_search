@@ -5,11 +5,20 @@
 - Update PR deployment method. [#195](https://github.com/woltapp/wolt_modal_sheet/pull/195)
 - Testing deployment flow. [#194](https://github.com/woltapp/wolt_modal_sheet/pull/194)
 - Update PR checks. [#192](https://github.com/woltapp/wolt_modal_sheet/pull/192)
+  - Fixes:
+    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190)
 - Add tests PR check and improve existing checks. [#191](https://github.com/woltapp/wolt_modal_sheet/pull/191)
+  - Fixes:
+    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190)
 - Add Enhanced Navigation Methods to WoltModalSheet. [#188](https://github.com/woltapp/wolt_modal_sheet/pull/188)
 - Bump minimum Flutter version to `3.10.6` and update Melos docs. [#187](https://github.com/woltapp/wolt_modal_sheet/pull/187)
+  - Fixes:
+    - [#183](https://github.com/woltapp/wolt_modal_sheet/issues/183)
 - [Breaking Change] Refactor page navigation in page list, remove pageIndexNotifier and pageListBuilderNotifier. [#182](https://github.com/woltapp/wolt_modal_sheet/pull/182)
 - Add "Table of Contents" to `README.md`. [#175](https://github.com/woltapp/wolt_modal_sheet/pull/175)
+  - Fixes:
+    - [#174](https://github.com/woltapp/wolt_modal_sheet/issues/174)
+
 ## 0.5.0
 - Added a "Designer's Collaboration Guide" section to the README, including 
   a Figma file link for streamlined design handoff and enhanced 
