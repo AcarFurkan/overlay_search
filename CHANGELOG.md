@@ -1,22 +1,23 @@
 ## 0.3.3
 - fix: only decorate the content of the modal. [#203](https://github.com/woltapp/wolt_modal_sheet/pull/203)
   - Fixes:
-    - [#201](https://github.com/woltapp/wolt_modal_sheet/pull/203) The child provided to decorator functions is larger than it should be
+    - [#201](https://github.com/woltapp/wolt_modal_sheet/issues/201) The child provided to decorator functions is larger than it should be
 - Update readme. [#197](https://github.com/woltapp/wolt_modal_sheet/pull/197)
 - Update PR deployment method. [#195](https://github.com/woltapp/wolt_modal_sheet/pull/195)
 - Update PR checks. [#192](https://github.com/woltapp/wolt_modal_sheet/pull/192)
   - Fixes:
-    - [#190](https://github.com/woltapp/wolt_modal_sheet/pull/192) Add PR check for tests
+    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190) Add PR check for tests
 - Add tests PR check and improve existing checks. [#191](https://github.com/woltapp/wolt_modal_sheet/pull/191)
   - Fixes:
-    - [#190](https://github.com/woltapp/wolt_modal_sheet/pull/191) Add PR check for tests
+    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190) Add PR check for tests
 - Add Enhanced Navigation Methods to WoltModalSheet. [#188](https://github.com/woltapp/wolt_modal_sheet/pull/188)
 - Bump minimum Flutter version to `3.10.6` and update Melos docs. [#187](https://github.com/woltapp/wolt_modal_sheet/pull/187)
   - Fixes:
-    - [#183](https://github.com/woltapp/wolt_modal_sheet/pull/187) Bump minimum Flutter version required to `3.10.6`
+    - [#183](https://github.com/woltapp/wolt_modal_sheet/issues/183) Bump minimum Flutter version required to `3.10.6`
 - Add "Table of Contents" to `README.md`. [#175](https://github.com/woltapp/wolt_modal_sheet/pull/175)
   - Fixes:
-    - [#174](https://github.com/woltapp/wolt_modal_sheet/pull/175) Include a "Table of Contents" in README
+    - [#174](https://github.com/woltapp/wolt_modal_sheet/issues/174) Include a "Table of Contents" in README
+
 
 ## 0.5.0
 - Added a "Designer's Collaboration Guide" section to the README, including 

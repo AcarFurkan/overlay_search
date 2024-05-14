@@ -67,8 +67,8 @@ else
                 if [[ "$issue_title" == "null" ]]; then
                     issue_title=""
                 fi
-
-                echo "    - [$issue_number]($pr_url) $issue_title" >> "$temp_file"
+                issue_url="https://github.com/$REPO_OWNER/$REPO_NAME/issues/${issue_number#\#}"
+                echo "    - [$issue_number]($issue_url) $issue_title" >> "$temp_file"
             done
         fi
     done
