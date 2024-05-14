@@ -1,6 +1,6 @@
 #!/bin/bash
-## publish sh
-# CHANGELOG.md dosyasının yolunu belirleyin
+## publish.sh
+# Specify the path to the CHANGELOG.md file
 CHANGELOG_PATH="../../CHANGELOG.md"
 
 PUBSPEC_PATH="../../pubspec.yaml"
@@ -9,31 +9,30 @@ REPO_OWNER="AcarFurkan"
 REPO_NAME="overlay_search"
 ACCESS_TOKEN="$ACCESS_TOKEN"
 
-# CHANGELOG.md dosyasından son release numarasını bulun
+# Find the latest release number from the CHANGELOG.md file
 latest_release=$(grep "^##" $CHANGELOG_PATH | head -1 | awk '{print $2}')
 
-# pubspec.yaml dosyasından mevcut versiyon numarasını bulun
+# Find the current version number from the pubspec.yaml file
 current_version=$(grep "version:" $PUBSPEC_PATH | awk '{print $2}')
 
 
-# Son release numarası ile mevcut versiyonu karşılaştırın
+# Compare the latest release number with the current version
 if [ "$latest_release" == "$current_version" ]; then
-    echo "CHANGELOG ve pubspec.yaml dosyalarındaki versiyonlar eşleşiyor: $current_version"
+    echo "The versions in CHANGELOG and pubspec.yaml match: $current_version"
     echo "Version number: $latest_release"
-      # GitHub API kullanarak yeni release oluşturun
- 
 
-      # Yeni release açıklamasını CHANGELOG.md dosyasından alın
-     release_notes=$(awk "/^## $current_version/{flag=1; next} /^## /{flag=0} flag" $CHANGELOG_PATH | jq -sR '.')
+    # Use GitHub API to create a new release
+    # Get the release notes from the CHANGELOG.md file
+    release_notes=$(awk "/^## $current_version/{flag=1; next} /^## /{flag=0} flag" $CHANGELOG_PATH | jq -sR '.')
 
-    # Release notlarını kontrol edin
+    # Check the release notes
     echo "Release notes: $release_notes"
 
-    # Git tag oluştur ve push et
+    # Create and push the Git tag
     git tag "v$current_version"
     git push origin "v$current_version"
 
-    # GitHub API ile yeni release oluşturun
+    # Create a new release using the GitHub API
     curl -X POST -H "Authorization: token $ACCESS_TOKEN" \
         -H "Accept: application/vnd.github.v3+json" \
         https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/releases \
@@ -46,23 +45,23 @@ if [ "$latest_release" == "$current_version" ]; then
             \"prerelease\": false
         }"
 else
-    echo "CHANGELOG ve pubspec.yaml dosyalarındaki versiyonlar eşleşmiyor."
-    echo "CHANGELOG versiyonu: $latest_release"
-    echo "pubspec.yaml versiyonu: $current_version"
+    echo "The versions in CHANGELOG and pubspec.yaml do not match."
+    echo "CHANGELOG version: $latest_release"
+    echo "pubspec.yaml version: $current_version"
 
-    # Kullanıcıdan generate_changelog.sh scriptini çalıştırmak için onay iste
-    read -p "CHANGELOG dosyasında gerekli versiyon ekli değil. generate_changelog.sh scriptini çalıştırmak ister misiniz? (E/H): " confirm
-    if [[ $confirm == "E" || $confirm == "e" ]]; then
+    # Ask the user for confirmation to run the generate_changelog.sh script
+    read -p "The required version is not in the CHANGELOG file. Would you like to run the generate_changelog.sh script? (Y/N): " confirm
+    if [[ $confirm == "Y" || $confirm == "y" ]]; then
         if bash ./generate_changelog.sh; then
-            echo "CHANGELOG başarılı bir şekilde oluşturuldu."
+            echo "CHANGELOG was successfully generated."
         
-            # publish.sh scriptini tekrar çalıştır
+            # Run the publish.sh script again
             bash ./publish.sh
             
         else
-            echo "CHANGELOG oluşturulamadı."
+            echo "Failed to generate CHANGELOG."
         fi
     else
-        echo "generate_changelog.sh scriptini çalıştırma işlemi iptal edildi."
+        echo "Running the generate_changelog.sh script was canceled."
     fi
 fi

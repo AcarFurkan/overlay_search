@@ -1,8 +1,3 @@
-## 0.3.4
-- Fix: search list item overflow . [#7](https://github.com/AcarFurkan/overlay_search/pull/7)
-  - Fixes:
-    - [#6](https://github.com/AcarFurkan/overlay_search/issues/6) Search result item text overflow 
-- fix: Update search_text_field.dart. [#1](https://github.com/AcarFurkan/overlay_search/pull/1)
 ## 0.3.3
 
 * add top bar widget
