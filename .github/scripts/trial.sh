@@ -52,13 +52,22 @@ else
         # İlişkili issue'ları bul ve geçici dosyaya yaz
         issues=$(echo "$pr_body" | egrep -o 'https://github\.com/[a-zA-Z0-9_\-]*/[a-zA-Z0-9_\-]*/issues/[0-9]+' | sed -E 's|.*/issues/([0-9]+)|#\1|' | sort -u)
         other_issues=$(echo "$pr_body" | egrep -o "(close|closes|closed|fix|fixes|fixed|resolve|resolves|resolved) #[0-9]+" | sed 's/.*#/#/' | sort -u)
+        related_issues=$(echo "$pr_body" | awk '/- #/ {print $2}')
+        combined_issues=($issues $other_issues $related_issues)
+        unique_issues=($(echo "${combined_issues[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '))
 
-        if [ ! -z "$issues" ] || [ ! -z "$other_issues" ]; then
+        if [ ! -z "$unique_issues" ]; then
             echo "  - Fixes:" >> "$temp_file"
-            for issue_number in $issues $other_issues; do
+            for issue_number in "${unique_issues[@]}"; do
                 # Issue başlığını almak için API çağrısı yap
                 issue_data=$(curl -s -H "Authorization: token $ACCESS_TOKEN" "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/${issue_number:1}")
                 issue_title=$(echo "$issue_data" | jq -r '.title')
+                
+                # Eğer issue başlığı yoksa, 'No title available' ile değiştir
+                if [[ "$issue_title" == "null" ]]; then
+                    issue_title=""
+                fi
+
                 echo "    - [$issue_number]($pr_url) $issue_title" >> "$temp_file"
             done
         fi

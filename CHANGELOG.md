@@ -1,5 +1,7 @@
 ## 0.3.3
 - fix: only decorate the content of the modal. [#203](https://github.com/woltapp/wolt_modal_sheet/pull/203)
+  - Fixes:
+    - [#201](https://github.com/woltapp/wolt_modal_sheet/pull/203) The child provided to decorator functions is larger than it should be
 - Update readme. [#197](https://github.com/woltapp/wolt_modal_sheet/pull/197)
 - change playground switch color(trial). [#196](https://github.com/woltapp/wolt_modal_sheet/pull/196)
 - Update PR deployment method. [#195](https://github.com/woltapp/wolt_modal_sheet/pull/195)
@@ -18,7 +20,6 @@
 - Add "Table of Contents" to `README.md`. [#175](https://github.com/woltapp/wolt_modal_sheet/pull/175)
   - Fixes:
     - [#174](https://github.com/woltapp/wolt_modal_sheet/pull/175) Include a "Table of Contents" in README
-
 
 ## 0.5.0
 - Added a "Designer's Collaboration Guide" section to the README, including 
