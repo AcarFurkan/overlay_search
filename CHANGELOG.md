@@ -1,3 +1,11 @@
+## 0.3.6
+- Feature: Add Changelog generator from last PR's. [#9](https://github.com/AcarFurkan/overlay_search/pull/9)
+  - Fixes:
+    - [#8](https://github.com/AcarFurkan/overlay_search/issues/8) Feature: changelog generator
+- Fix: search list item overflow . [#7](https://github.com/AcarFurkan/overlay_search/pull/7)
+  - Fixes:
+    - [#6](https://github.com/AcarFurkan/overlay_search/issues/6) Search result item text overflow 
+- fix: Update search_text_field.dart. [#1](https://github.com/AcarFurkan/overlay_search/pull/1)
 ## 0.3.3
 
 * add top bar widget
