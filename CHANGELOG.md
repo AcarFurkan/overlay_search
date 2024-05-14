@@ -1,60 +1,8 @@
-## 0.3.3
-- fix: only decorate the content of the modal. [#203](https://github.com/woltapp/wolt_modal_sheet/pull/203)
+## 0.3.4
+- Fix: search list item overflow . [#7](https://github.com/AcarFurkan/overlay_search/pull/7)
   - Fixes:
-    - [#201](https://github.com/woltapp/wolt_modal_sheet/issues/201) The child provided to decorator functions is larger than it should be
-- Update readme. [#197](https://github.com/woltapp/wolt_modal_sheet/pull/197)
-- Update PR deployment method. [#195](https://github.com/woltapp/wolt_modal_sheet/pull/195)
-- Update PR checks. [#192](https://github.com/woltapp/wolt_modal_sheet/pull/192)
-  - Fixes:
-    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190) Add PR check for tests
-- Add tests PR check and improve existing checks. [#191](https://github.com/woltapp/wolt_modal_sheet/pull/191)
-  - Fixes:
-    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190) Add PR check for tests
-- Add Enhanced Navigation Methods to WoltModalSheet. [#188](https://github.com/woltapp/wolt_modal_sheet/pull/188)
-- Bump minimum Flutter version to `3.10.6` and update Melos docs. [#187](https://github.com/woltapp/wolt_modal_sheet/pull/187)
-  - Fixes:
-    - [#183](https://github.com/woltapp/wolt_modal_sheet/issues/183) Bump minimum Flutter version required to `3.10.6`
-- Add "Table of Contents" to `README.md`. [#175](https://github.com/woltapp/wolt_modal_sheet/pull/175)
-  - Fixes:
-    - [#174](https://github.com/woltapp/wolt_modal_sheet/issues/174) Include a "Table of Contents" in README
-
-
-## 0.5.0
-- Added a "Designer's Collaboration Guide" section to the README, including 
-  a Figma file link for streamlined design handoff and enhanced 
-  collaboration between designers and developers. [#166](https://github.com/woltapp/wolt_modal_sheet/pull/166)
-- Update example app files for missing RunnerTests folder and Podfile. [#168](https://github.com/woltapp/wolt_modal_sheet/pull/168)
-  - Fixes [#153](https://github.com/woltapp/wolt_modal_sheet/issues/153)
-- Introduce `WoltModalSheetAnimationStyle` to customize the pagination and 
-  scrolling animation styles of the modal sheet. [#165](https://github.com/woltapp/wolt_modal_sheet/pull/165)
-  - Addresses the issues: 
-    - [#125](https://github.com/woltapp/wolt_modal_sheet/issues/125)
-    - [#131](https://github.com/woltapp/wolt_modal_sheet/issues/131)
-- Change default clip behavior to antiAliasWithSaveLayer to fix Top Bar 
-  rendering issues. [#164](https://github.com/woltapp/wolt_modal_sheet/pull/164)
-  - Fixes [#162](https://github.com/woltapp/wolt_modal_sheet/issues/162)
-- Add resizeToAvoidBottomInset option to control soft keyboard overlay 
-  behavior. [#163](https://github.com/woltapp/wolt_modal_sheet/pull/163)
-  - Fixes [#154](https://github.com/woltapp/wolt_modal_sheet/issues/154)
-- Add firebase hosting and deploy workflow so that every time PR is opened, 
-  the samples will be deployed and sent as a message, and every time the 
-  main is merged, the main samples will be deployed again. [#159](https://github.com/woltapp/wolt_modal_sheet/pull/159)
-- The surfaceTintColor field is added to pages to control background color 
-  of the modal sheet for every page. [#156](https://github.com/woltapp/wolt_modal_sheet/pull/156)
-  - Addresses [#139](https://github.com/woltapp/wolt_modal_sheet/issues/139)
-- Added semantics for improved accessibility of the modal sheet. [#150](https://github.com/woltapp/wolt_modal_sheet/pull/150)
-  - Addresses [#148](https://github.com/woltapp/wolt_modal_sheet/issues/148) 
-
-## 0.4.1
-- Reverts [#128](https://github.com/woltapp/wolt_modal_sheet/pull/128) to fix [#134](https://github.com/woltapp/wolt_modal_sheet/issues/134) and [#135](https://github.com/woltapp/wolt_modal_sheet/issues/135)
-
-## 0.4.0
-- Fix state update handling: Current page do not receive update for new 
-  widget subtree in the page when the decorator marks the page as dirty. 
-  [#128](https://github.com/woltapp/wolt_modal_sheet/pull/128)
-- Add NonScrollingWoltModalSheetPage page type. [#127](https://github.com/woltapp/wolt_modal_sheet/pull/127)
-
-
+    - [#6](https://github.com/AcarFurkan/overlay_search/issues/6) Search result item text overflow 
+- fix: Update search_text_field.dart. [#1](https://github.com/AcarFurkan/overlay_search/pull/1)
 ## 0.3.3
 
 * add top bar widget

@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # GitHub kullanıcı adı ve repo adı
-REPO_OWNER="woltapp"
-REPO_NAME="wolt_modal_sheet"
+      # GitHub API kullanarak yeni release oluşturun
+ 
+REPO_OWNER="AcarFurkan"
+REPO_NAME="overlay_search"
 ACCESS_TOKEN="$ACCESS_TOKEN"
 CHANGELOG_FILE="../../CHANGELOG.md"  # Changelog dosyanızın yolu
 PUBSPEC_FILE="../../pubspec.yaml"  # pubspec.yaml dosyanızın yolu
@@ -18,15 +20,18 @@ echo "Current version in pubspec.yaml: $current_version"
 # GitHub API URL'si (son PR'dan itibaren kapalı ve birleştirilmiş PR'ler için)
 URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls?state=closed&sort=created&direction=desc"
 
+last_pr_number=${last_pr_number:-0}
+
 # Kapalı pull request'leri çekmek için curl kullanarak API çağrısı yapılıyor
 pulls=$(curl -H "Authorization: token $ACCESS_TOKEN" $URL | jq -c --arg last_pr_number "$last_pr_number" '.[] | select(.number > ($last_pr_number | tonumber) and .merged_at != null) | {number, title, body, html_url}')
-
+echo "New pull requests since PR #$last_pr_number:"
+echo "$pulls"
 # Geçici dosya oluştur
 temp_file=$(mktemp)
 
 # Yeni PR'lar varsa, bunları geçici dosyaya yaz
 if [ -z "$pulls" ]; then
-    echo "No new pull requests since PR #$last_pr_number." > "$temp_file"
+    echo "No new pull requests since PR #$last_pr_number."
 else
     echo "## $current_version" > "$temp_file"
     should_skip=false
