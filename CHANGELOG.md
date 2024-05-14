@@ -3,9 +3,7 @@
   - Fixes:
     - [#201](https://github.com/woltapp/wolt_modal_sheet/pull/203) The child provided to decorator functions is larger than it should be
 - Update readme. [#197](https://github.com/woltapp/wolt_modal_sheet/pull/197)
-- change playground switch color(trial). [#196](https://github.com/woltapp/wolt_modal_sheet/pull/196)
 - Update PR deployment method. [#195](https://github.com/woltapp/wolt_modal_sheet/pull/195)
-- Testing deployment flow. [#194](https://github.com/woltapp/wolt_modal_sheet/pull/194)
 - Update PR checks. [#192](https://github.com/woltapp/wolt_modal_sheet/pull/192)
   - Fixes:
     - [#190](https://github.com/woltapp/wolt_modal_sheet/pull/192) Add PR check for tests
@@ -16,7 +14,6 @@
 - Bump minimum Flutter version to `3.10.6` and update Melos docs. [#187](https://github.com/woltapp/wolt_modal_sheet/pull/187)
   - Fixes:
     - [#183](https://github.com/woltapp/wolt_modal_sheet/pull/187) Bump minimum Flutter version required to `3.10.6`
-- [Breaking Change] Refactor page navigation in page list, remove pageIndexNotifier and pageListBuilderNotifier. [#182](https://github.com/woltapp/wolt_modal_sheet/pull/182)
 - Add "Table of Contents" to `README.md`. [#175](https://github.com/woltapp/wolt_modal_sheet/pull/175)
   - Fixes:
     - [#174](https://github.com/woltapp/wolt_modal_sheet/pull/175) Include a "Table of Contents" in README

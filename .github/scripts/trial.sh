@@ -3,7 +3,7 @@
 # GitHub kullanıcı adı ve repo adı
 REPO_OWNER="woltapp"
 REPO_NAME="wolt_modal_sheet"
-ACCESS_TOKEN="$ACCESS_TOKEN" 
+ACCESS_TOKEN="$ACCESS_TOKEN"
 CHANGELOG_FILE="../../CHANGELOG.md"  # Changelog dosyanızın yolu
 PUBSPEC_FILE="../../pubspec.yaml"  # pubspec.yaml dosyanızın yolu
 
@@ -19,7 +19,7 @@ echo "Current version in pubspec.yaml: $current_version"
 URL="https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/pulls?state=closed&sort=created&direction=desc"
 
 # Kapalı pull request'leri çekmek için curl kullanarak API çağrısı yapılıyor
-pulls=$(curl -H "Authorization: token $ACCESS_TOKEN" $URL | jq -c --arg last_pr_number "$last_pr_number" '.[] | select(.number > ($last_pr_number | tonumber)) | {number, title, body, html_url}')
+pulls=$(curl -H "Authorization: token $ACCESS_TOKEN" $URL | jq -c --arg last_pr_number "$last_pr_number" '.[] | select(.number > ($last_pr_number | tonumber) and .merged_at != null) | {number, title, body, html_url}')
 
 # Geçici dosya oluştur
 temp_file=$(mktemp)
@@ -60,7 +60,7 @@ else
             echo "  - Fixes:" >> "$temp_file"
             for issue_number in "${unique_issues[@]}"; do
                 # Issue başlığını almak için API çağrısı yap
-                issue_data=$(curl -s -H "Authorization: token $ACCESS_TOKEN" "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/${issue_number:1}")
+                issue_data=$(curl -s -H "Authorization: token $ACCESS_TOKEN" "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/${issue_number#\#}")
                 issue_title=$(echo "$issue_data" | jq -r '.title')
                 
                 # Eğer issue başlığı yoksa, 'No title available' ile değiştir
