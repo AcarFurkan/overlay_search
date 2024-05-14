@@ -83,11 +83,16 @@ class OverlayContent extends StatelessWidget {
                                 return SizedBox(
                                   height: 55,
                                   child: ListTile(
-                                    title: Text(e.title, style: titleStyle),
+                                    title: Text(
+                                      e.title,
+                                      style: titleStyle,
+                                      maxLines: 1,
+                                    ),
                                     subtitle: e.content != null
                                         ? Text(
                                             e.content!,
                                             style: contentStyle,
+                                            maxLines: 1,
                                           )
                                         : null,
                                     onTap: () {
