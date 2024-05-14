@@ -54,6 +54,10 @@ else
     if [[ $confirm == "Y" || $confirm == "y" ]]; then
         if bash ./generate_changelog.sh; then
             echo "CHANGELOG was successfully generated."
+
+            git add $CHANGELOG_PATH
+            git commit -m "CHANGELOG.md generated"
+            git push origin main
         
             # Run the publish.sh script again
             bash ./publish.sh
