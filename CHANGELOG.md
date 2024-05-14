@@ -6,18 +6,19 @@
 - Testing deployment flow. [#194](https://github.com/woltapp/wolt_modal_sheet/pull/194)
 - Update PR checks. [#192](https://github.com/woltapp/wolt_modal_sheet/pull/192)
   - Fixes:
-    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190)
+    - [#190](https://github.com/woltapp/wolt_modal_sheet/pull/192) Add PR check for tests
 - Add tests PR check and improve existing checks. [#191](https://github.com/woltapp/wolt_modal_sheet/pull/191)
   - Fixes:
-    - [#190](https://github.com/woltapp/wolt_modal_sheet/issues/190)
+    - [#190](https://github.com/woltapp/wolt_modal_sheet/pull/191) Add PR check for tests
 - Add Enhanced Navigation Methods to WoltModalSheet. [#188](https://github.com/woltapp/wolt_modal_sheet/pull/188)
 - Bump minimum Flutter version to `3.10.6` and update Melos docs. [#187](https://github.com/woltapp/wolt_modal_sheet/pull/187)
   - Fixes:
-    - [#183](https://github.com/woltapp/wolt_modal_sheet/issues/183)
+    - [#183](https://github.com/woltapp/wolt_modal_sheet/pull/187) Bump minimum Flutter version required to `3.10.6`
 - [Breaking Change] Refactor page navigation in page list, remove pageIndexNotifier and pageListBuilderNotifier. [#182](https://github.com/woltapp/wolt_modal_sheet/pull/182)
 - Add "Table of Contents" to `README.md`. [#175](https://github.com/woltapp/wolt_modal_sheet/pull/175)
   - Fixes:
-    - [#174](https://github.com/woltapp/wolt_modal_sheet/issues/174)
+    - [#174](https://github.com/woltapp/wolt_modal_sheet/pull/175) Include a "Table of Contents" in README
+
 
 ## 0.5.0
 - Added a "Designer's Collaboration Guide" section to the README, including 

@@ -55,11 +55,11 @@ else
 
         if [ ! -z "$issues" ] || [ ! -z "$other_issues" ]; then
             echo "  - Fixes:" >> "$temp_file"
-            for issue in $issues; do
-                echo "    - [$issue](https://github.com/$REPO_OWNER/$REPO_NAME/issues/${issue:1})" >> "$temp_file"
-            done
-            for issue in $other_issues; do
-                echo "    - [$issue](https://github.com/$REPO_OWNER/$REPO_NAME/issues/${issue:1})" >> "$temp_file"
+            for issue_number in $issues $other_issues; do
+                # Issue başlığını almak için API çağrısı yap
+                issue_data=$(curl -s -H "Authorization: token $ACCESS_TOKEN" "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/issues/${issue_number:1}")
+                issue_title=$(echo "$issue_data" | jq -r '.title')
+                echo "    - [$issue_number]($pr_url) $issue_title" >> "$temp_file"
             done
         fi
     done
