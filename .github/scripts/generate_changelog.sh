@@ -9,6 +9,11 @@ ACCESS_TOKEN="$ACCESS_TOKEN"
 CHANGELOG_FILE="../../CHANGELOG.md"  # Changelog dosyanızın yolu
 PUBSPEC_FILE="../../pubspec.yaml"  # pubspec.yaml dosyanızın yolu
 
+if [ -z "$ACCESS_TOKEN" ]; then
+    echo "The ACCESS_TOKEN is not set in generate_changelog.sh"
+    exit 1
+fi
+
 # Changelog dosyasından ilk PR numarasını bul
 last_pr_number=$(grep -o '#[0-9]\+' "$CHANGELOG_FILE" | head -1 | tr -d '#')
 echo "First PR number in changelog: $last_pr_number"

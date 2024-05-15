@@ -9,6 +9,11 @@ REPO_OWNER="AcarFurkan"
 REPO_NAME="overlay_search"
 ACCESS_TOKEN="$ACCESS_TOKEN"
 
+if [ -z "$ACCESS_TOKEN" ]; then
+    echo "The ACCESS_TOKEN is not set in publish.sh"
+    exit 1
+fi
+
 # Find the latest release number from the CHANGELOG.md file
 latest_release=$(grep "^##" $CHANGELOG_PATH | head -1 | awk '{print $2}')
 
@@ -54,13 +59,18 @@ else
     if [[ $confirm == "Y" || $confirm == "y" ]]; then
         if bash ./generate_changelog.sh; then
             echo "CHANGELOG was successfully generated."
+             read -p "Do you want to proceed with committing and publishing the CHANGELOG? (y/n): " user_response
 
-            git add $CHANGELOG_PATH
-            git commit -m "CHANGELOG.md generated"
-            git push origin main
-        
-            # Run the publish.sh script again
-            bash ./publish.sh
+    if [[ "$user_response" == [yY] ]]; then
+        git add $CHANGELOG_PATH
+        git commit -m "CHANGELOG.md generated"
+        git push origin main
+
+        # Run the publish.sh script again
+        bash ./publish.sh
+    else
+        echo "Committing and publishing were skipped."
+    fi
             
         else
             echo "Failed to generate CHANGELOG."
