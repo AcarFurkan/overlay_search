@@ -8,7 +8,7 @@
 - fix: Update search_text_field.dart. [#1](https://github.com/AcarFurkan/overlay_search/pull/1)
 ## 0.3.3
 
-* add top bar widget
+* add top bar widget 
 
 ## 0.3.2
 
